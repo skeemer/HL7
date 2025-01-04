@@ -163,6 +163,11 @@ class HL7
         return $this->setGlobal('HL7_VERSION', $hl7Version);
     }
 
+    public function withSegmentEndingBar(bool $value): self
+    {
+        return $this->setGlobal('SEGMENT_ENDING_BAR', $value);
+    }
+
     public function keepEmptySubfields(bool $value = true): self
     {
         $this->emptySubFields = $value;
@@ -187,7 +192,7 @@ class HL7
         return $this;
     }
 
-    private function setGlobal(string $name, string $value): self
+    private function setGlobal(string $name, bool|string $value): self
     {
         $this->hl7Globals[$name] = $value;
         return $this;
