@@ -366,7 +366,7 @@ class Message
         foreach ($this->segments as $segment) {
             $segmentString = $this->segmentToString($segment);
             if (!$this->segmentEndingBar) {
-                $segmentString = preg_replace('/\|$/', '', $segmentString);
+                $segmentString = substr($segmentString, 0, -1);
             }
             $message .= $segmentString;
             $message .= $pretty
